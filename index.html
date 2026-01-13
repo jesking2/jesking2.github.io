@@ -15,7 +15,6 @@
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
         .terminal-text { font-family: 'Courier New', Courier, monospace; color: #10b981; }
         
-        /* Estilos para el Modal */
         #modalContacto { 
             display: none; 
             position: fixed; 
@@ -142,7 +141,6 @@
 
 <script>
     function seleccionarPlan(nombre, asunto) {
-        // Reset visual
         document.querySelectorAll('.plan-card').forEach(c => {
             c.classList.remove('border-green-500', 'bg-green-900/10', 'border-blue-500', 'bg-blue-900/20');
         });
@@ -151,7 +149,6 @@
         const email = "jesusmreyes2021@hotmail.com";
         let cuerpo = "";
         
-        // Configuración de cuerpo de correo con saludo "Hola A_s"
         if (nombre === 'PRUEBA GRATUITA') {
             boton.innerText = "SOLICITAR INSTALADOR (DEMO)";
             cuerpo = `Hola A_s,\n\nMe interesa probar Nova Agro v88.0.\n\nNombre del Referido (si aplica):\n\nFavor enviarme el instalador para iniciar la prueba de 15 días.`;
@@ -163,11 +160,9 @@
             cuerpo = `Hola A_s,\n\nMe interesa el ${nombre}.\n\nNombre del cliente:\n\nQuedo atento al envío del instalador para proceder con la activación interna.`;
         }
 
-        // Generar URL para Outlook
         const mailUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${email}&subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
         boton.href = mailUrl;
 
-        // Feedback visual
         const target = event.currentTarget;
         if(nombre === 'LICENCIA PERMANENTE') {
             target.classList.add('border-blue-500', 'bg-blue-900/20');
