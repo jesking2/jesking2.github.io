@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA AGRO | Control Agrícola Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0c10; color: #e5e7eb; scroll-behavior: smooth; }
+        .hero-bg { background: radial-gradient(circle at top right, #065f46 0%, #0a0c10 50%); }
+        .card-glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .accent-green { color: #10b981; }
+        .btn-primary { background: linear-gradient(135deg, #10b981 0%, #059669 100%); transition: all 0.3s ease; cursor: pointer; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
+        .terminal-text { font-family: 'Courier New', Courier, monospace; color: #10b981; }
+        
+        /* Estilos para el Modal */
+        #modalContacto { 
+            display: none; 
+            position: fixed; 
+            inset: 0; 
+            z-index: 100; 
+            background: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(12px);
+            align-items: center; 
+            justify-content: center; 
+        }
+        .modal-open { display: flex !important; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-black tracking-tighter italic">NOVA_<span class="accent-green">AGRO</span> <span class="text-xs opacity-50 font-normal">v88.0</span></div>
+        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest">
+            <a href="#funciones" class="hover:text-green-400 transition">Funciones</a>
+            <a href="#analizador" class="hover:text-green-400 transition">Analizador</a>
+            <button onclick="abrirModal()" class="text-green-400 font-bold hover:text-white transition">PROBAR GRATIS</button>
+        </div>
+    </nav>
+
+    <header class="hero-bg py-20 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="bg-green-900/50 text-green-400 text-xs font-bold px-3 py-1 rounded-full border border-green-500/30 font-mono tracking-widest uppercase">Tecnología al alcance de todos</span>
+                <h1 class="text-5xl lg:text-7xl font-black mt-6 leading-tight uppercase italic">
+                    Control de Cultivo <br><span class="accent-green">Industrial.</span>
+                </h1>
+                <p class="mt-6 text-stone-400 text-lg max-w-lg leading-relaxed">
+                    Software de precisión para entornos de producción real. Gestión de fitosanidad, inyecciones y bodega con reportes PDF automáticos.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-4">
+                    <button onclick="abrirModal()" class="btn-primary px-10 py-5 rounded-2xl font-black text-black tracking-widest uppercase text-lg">SOLICITAR PRUEBA GRATUITA</button>
+                </div>
+            </div>
+            
+            <div class="card-glass p-6 rounded-3xl shadow-2xl relative">
+                <div class="flex gap-2 mb-4">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-black/60 p-5 rounded-xl border border-white/5">
+                        <p class="text-[10px] text-stone-500 font-bold uppercase mb-2 italic">Monitor Fitosanitario Activo</p>
+                        <div class="grid grid-cols-10 gap-1">
+                            <div class="h-4 bg-green-500 rounded-sm"></div><div class="h-4 bg-green-500 rounded-sm shadow-[0_0_8px_#10b981]"></div>
+                            <div class="h-4 bg-green-500 rounded-sm"></div><div class="h-4 bg-red-500 rounded-sm animate-pulse shadow-[0_0_8px_#ef4444]"></div>
+                            <div class="h-4 bg-green-500 rounded-sm"></div><div class="h-4 bg-green-500 rounded-sm"></div>
+                            <div class="h-4 bg-blue-500 rounded-sm"></div><div class="h-4 bg-green-500 rounded-sm"></div>
+                            <div class="h-4 bg-green-500 rounded-sm"></div><div class="h-4 bg-green-500 rounded-sm"></div>
+                        </div>
+                        <p class="mt-4 terminal-text text-[10px]">> ANALIZADOR: DETECTADA ANOMALÍA EN CAMA 012</p>
+                        <p class="terminal-text text-[10px]">> SUGERENCIA: REVISIÓN DE CICLO FITOSANITARIO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="modalContacto">
+    <div class="card-glass p-8 rounded-[2.5rem] w-full max-w-3xl mx-4 border-green-500/30 shadow-2xl relative overflow-y-auto max-h-[95vh]">
+        <button onclick="cerrarModal()" class="absolute top-6 right-6 text-stone-500 hover:text-white text-3xl font-light">&times;</button>
+        
+        <h3 class="text-3xl font-black mb-2 accent-green uppercase tracking-tighter italic">Obtener Nova Agro</h3>
+        <p class="text-stone-300 text-sm mb-8 uppercase tracking-widest opacity-70 italic">Solicitud de instalador v88.0</p>
+        
+        <div class="grid md:grid-cols-2 gap-4 mb-10">
+            
+            <div onclick="seleccionarPlan('PRUEBA GRATUITA', 'Solicitud de Instalador (Prueba 15 Días)')" 
+                 class="plan-card p-6 rounded-2xl border border-white/10 bg-black/40 cursor-pointer hover:border-green-500/50 transition-all">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] bg-stone-800 px-2 py-0.5 rounded text-stone-400 font-bold uppercase">Acceso Demo</span>
+                    <span class="text-green-500 font-black italic">GRATIS</span>
+                </div>
+                <h4 class="text-white font-black text-xl tracking-tight">15 DÍAS PRUEBA</h4>
+                <p class="text-stone-500 text-xs mt-2 italic">Solicita el ejecutable para iniciar tu evaluación.</p>
+            </div>
+
+            <div onclick="seleccionarPlan('PLAN BÁSICO', 'Interés en Plan Básico (Inventario)')" 
+                 class="plan-card p-6 rounded-2xl border border-white/10 bg-black/40 cursor-pointer hover:border-green-500/50 transition-all">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] bg-stone-800 px-2 py-0.5 rounded text-stone-400 font-bold uppercase">Suscripción</span>
+                    <span class="text-green-500 font-black italic">$35.000 COP</span>
+                </div>
+                <h4 class="text-white font-black text-xl tracking-tight">BÁSICO BODEGA</h4>
+                <p class="text-stone-500 text-xs mt-2 italic">Gestión de inventarios y stock de insumos.</p>
+            </div>
+
+            <div onclick="seleccionarPlan('PLAN COMPLETO', 'Interés en Plan Completo (Full)')" 
+                 class="plan-card p-6 rounded-2xl border border-white/10 bg-black/40 cursor-pointer hover:border-green-500/50 transition-all">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] bg-green-900/50 px-2 py-0.5 rounded text-green-400 font-bold uppercase">Suscripción Full</span>
+                    <span class="text-green-500 font-black italic">$160.000 COP</span>
+                </div>
+                <h4 class="text-white font-black text-xl tracking-tight">INDUSTRIAL</h4>
+                <p class="text-stone-500 text-xs mt-2 italic">Control fitosanitario total y reportes avanzados.</p>
+            </div>
+
+            <div onclick="seleccionarPlan('LICENCIA PERMANENTE', 'Consulta Licencia Offline Permanente')" 
+                 class="plan-card p-6 rounded-2xl border border-blue-500/20 bg-blue-900/5 cursor-pointer hover:border-blue-500/50 transition-all">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] bg-blue-900/50 px-2 py-0.5 rounded text-blue-400 font-bold uppercase">Vitalicia</span>
+                    <span class="text-blue-400 font-black italic">OFFLINE</span>
+                </div>
+                <h4 class="text-white font-black text-xl tracking-tight">PERMANENTE</h4>
+                <p class="text-stone-500 text-xs mt-2 italic">Software perpetuo sin pagos mensuales.</p>
+            </div>
+        </div>
+
+        <a id="botonDinamico" 
+           href="#" 
+           target="_blank"
+           class="btn-primary block w-full text-center py-5 rounded-2xl text-black font-black uppercase tracking-widest text-sm shadow-xl shadow-green-500/20">
+            SELECCIONA UNA VERSIÓN
+        </a>
+        
+        <p class="text-[9px] text-center text-stone-600 mt-6 font-bold uppercase tracking-[0.2em]">El sistema gestiona las suscripciones activas de forma interna.</p>
+    </div>
+</div>
+
+<script>
+    function seleccionarPlan(nombre, asunto) {
+        // Reset visual
+        document.querySelectorAll('.plan-card').forEach(c => {
+            c.classList.remove('border-green-500', 'bg-green-900/10', 'border-blue-500', 'bg-blue-900/20');
+        });
+
+        const boton = document.getElementById('botonDinamico');
+        const email = "jesusmreyes2021@hotmail.com";
+        let cuerpo = "";
+        
+        // Configuración de cuerpo de correo con saludo "Hola A_s"
+        if (nombre === 'PRUEBA GRATUITA') {
+            boton.innerText = "SOLICITAR INSTALADOR (DEMO)";
+            cuerpo = `Hola A_s,\n\nMe interesa probar Nova Agro v88.0.\n\nNombre del Referido (si aplica):\n\nFavor enviarme el instalador para iniciar la prueba de 15 días.`;
+        } else if (nombre === 'LICENCIA PERMANENTE') {
+            boton.innerText = "CONSULTAR LICENCIA PERMANENTE";
+            cuerpo = `Hola A_s,\n\nSolicito información para adquirir la licencia permanente OFFLINE de Nova Agro.\n\nNombre del cliente/empresa:`;
+        } else {
+            boton.innerText = `SOLICITAR INSTALADOR: ${nombre}`;
+            cuerpo = `Hola A_s,\n\nMe interesa el ${nombre}.\n\nNombre del cliente:\n\nQuedo atento al envío del instalador para proceder con la activación interna.`;
+        }
+
+        // Generar URL para Outlook
+        const mailUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${email}&subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+        boton.href = mailUrl;
+
+        // Feedback visual
+        const target = event.currentTarget;
+        if(nombre === 'LICENCIA PERMANENTE') {
+            target.classList.add('border-blue-500', 'bg-blue-900/20');
+        } else {
+            target.classList.add('border-green-500', 'bg-green-900/10');
+        }
+    }
+</script>
+
+<style>
+    .plan-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.05); }
+    .plan-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.05); }
+</style>
+
+<style>
+    .plan-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .plan-card:hover { transform: scale(1.02); }
+</style>
+
+    <section id="funciones" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-black text-center mb-16 uppercase tracking-[0.3em] accent-green">Capacidades del Sistema</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card-glass p-8 rounded-2xl border-green-500/10 hover:border-green-500/40 transition-all duration-300">
+                <div class="mb-4 accent-green">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Edición Masiva Inteligente</h3>
+                <p class="text-sm text-stone-400">Actualización fitosanitaria de miles de unidades en segundos. Optimización de captura de datos de campo.</p>
+            </div>
+            <div class="card-glass p-8 rounded-2xl border-green-500/10 hover:border-green-500/40 transition-all duration-300">
+                <div class="mb-4 accent-green">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.5 7.5L14.5 4.5M13 6l3 3m-4.5-1.5l-6 6a2 2 0 000 2.828l.172.172a2 2 0 002.828 0l6-6M9 13l2 2m-6.5 1.5l-1.5 1.5"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Registro de Inyecciones</h3>
+                <p class="text-sm text-stone-400">Trazabilidad en la aplicación de nutrientes vinculada directamente al inventario de bodega.</p>
+            </div>
+            <div class="card-glass p-8 rounded-2xl border-green-500/10 hover:border-green-500/40 transition-all duration-300">
+                <div class="mb-4 accent-green">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05L5.636 5.636M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Ciclos Fitosanitarios</h3>
+                <p class="text-sm text-stone-400">Gestión de fumigaciones y aspersiones con historial epidemiológico para prevención de plagas.</p>
+            </div>
+            <div class="card-glass p-8 rounded-2xl border-green-500/10 hover:border-green-500/40 transition-all duration-300">
+                <div class="mb-4 accent-green">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Gestor de tareas</h3>
+                <p class="text-sm text-stone-400">
+                    Gestión de la realizacion de las actividades pendientes y relaizadas en cada lote respectivo.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="analizador" class="py-20 bg-stone-900/20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black mb-6 italic italic uppercase">Analizador Independiente</h2>
+            <p class="text-stone-400 mb-12">Seguimiento por semanas agrícolas y temporadas automáticas con conexión local robusta.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 uppercase font-bold text-[11px] tracking-widest">
+                <div class="p-4 bg-black/40 rounded-lg border border-white/5 accent-green">SQL3 LITE</div>
+                <div class="p-4 bg-black/40 rounded-lg border border-white/5 accent-green">AES CRYPTO</div>
+                <div class="p-4 bg-black/40 rounded-lg border border-white/5 accent-green">REPORTLAB</div>
+                <div class="p-4 bg-black/40 rounded-lg border border-white/5 accent-green">WIN 10/11</div>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="p-10 text-center border-t border-white/5">
+        <p class="text-stone-600 text-xs font-mono uppercase tracking-widest">NOVA AGRO SYSTEM • DESARROLLADO POR JESUS MANUEL REYES REYES</p>
+    </footer>
+
+    <script>
+        function abrirModal() {
+            document.getElementById('modalContacto').classList.add('modal-open');
+        }
+        function cerrarModal() {
+            document.getElementById('modalContacto').classList.remove('modal-open');
+        }
+        window.onclick = function(event) {
+            let modal = document.getElementById('modalContacto');
+            if (event.target == modal) { cerrarModal(); }
+        }
+    </script>
+</body>
+</html>
