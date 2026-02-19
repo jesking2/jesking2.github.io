@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>NOVA AGRO | Tutorial</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0c10;
+    color: #e5e7eb;
+}
+
+.hero-bg {
+    background: radial-gradient(circle at top right, #065f46 0%, #0a0c10 60%);
+}
+
+.card-glass {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.accent-green { color: #10b981; }
+
+.btn-primary {
+    background: linear-gradient(135deg,#10b981 0%,#059669 100%);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16,185,129,0.3);
+}
+</style>
+</head>
+
+<body class="antialiased">
+
+<nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+    <div class="text-2xl font-black tracking-tighter italic">
+        NOVA_<span class="accent-green">AGRO</span>
+        <span class="text-xs opacity-50 font-normal">v88.0</span>
+    </div>
+
+    <a href="index.html" class="btn-primary px-6 py-2 rounded-xl text-black font-bold uppercase text-sm">
+        Volver
+    </a>
+</nav>
+
+<section class="hero-bg py-16 px-6">
+
+<div class="max-w-6xl mx-auto text-center">
+
+<span class="bg-green-900/50 text-green-400 text-xs font-bold px-3 py-1 rounded-full border border-green-500/30 font-mono tracking-widest uppercase">
+Guia del Sistema
+</span>
+
+<h1 class="text-5xl font-black mt-6 uppercase italic">
+Uso <span class="accent-green">Nova Agro</span>
+</h1>
+
+<p class="mt-6 text-stone-400 max-w-2xl mx-auto">
+Video explicativo del funcionamiento del sistema.
+</p>
+
+</div>
+</section>
+
+<section class="py-16 px-6">
+
+<div class="max-w-5xl mx-auto">
+
+<div class="card-glass p-6 rounded-3xl shadow-2xl">
+
+<div class="flex gap-2 mb-4">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+
+<!-- VIDEO GOOGLE DRIVE -->
+<div class="relative w-full overflow-hidden rounded-xl border border-white/10"
+style="padding-top:56.25%;">
+
+<iframe
+class="absolute top-0 left-0 w-full h-full"
+src="https://drive.google.com/file/d/1A6BF-ca0_7JCpE7i1riSTBAvK3E9No1Y/preview"
+allow="autoplay"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="p-10 text-center border-t border-white/5">
+<p class="text-stone-600 text-xs font-mono uppercase tracking-widest">
+NOVA AGRO SYSTEM • VIDEO GUIA
+</p>
+</footer>
+
+</body>
+</html>
